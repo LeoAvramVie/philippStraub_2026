@@ -417,6 +417,7 @@ body::before {
   transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(1.03);
   filter: brightness(0.7) contrast(100%) saturate(115%);
+  will-change: transform; /* Hint browser to optimize compositing for animation performance */
 }
 
 .bento-card:hover .card-bg-image {
@@ -901,6 +902,7 @@ body::before {
   transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(1.03);
   pointer-events: none;
+  will-change: transform; /* Optimize compositing layers for fluid Ken Burns scale effect */
 }
 
 /* Individual Background Image assignments */

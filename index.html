@@ -3,8 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philipp Straub | Official Portal</title>
-  <meta name="description" content="Official portal of Philipp Straub. International DJ, Producer, and leading Nightlife Strategist & Hospitality Consultant.">
+  <title>DJ Philipp Straub | Official Website - Techno DJ, Producer & Music Consultant</title>
+  <meta name="description" content="Official website of DJ Philipp Straub. International Techno DJ, Producer, and leading Nightlife Strategist & Hospitality Music Consultant. Discover sounds, sets, tour dates, and bookings.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.philippstraub.com/">
+
+  <!-- Performance Optimization: Preload LCP Background Image -->
+  <link rel="preload" href="img/black_wave_pattern.png" as="image">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.philippstraub.com/">
+  <meta property="og:title" content="DJ Philipp Straub | Official Website - Techno DJ, Producer & Music Consultant">
+  <meta property="og:description" content="Official website of DJ Philipp Straub. International Techno DJ, Producer, and leading Nightlife Strategist & Hospitality Music Consultant. Discover sounds, sets, tour dates, and bookings.">
+  <meta property="og:image" content="https://www.philippstraub.com/img/phil_festival.png">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.philippstraub.com/">
+  <meta property="twitter:title" content="DJ Philipp Straub | Official Website - Techno DJ, Producer & Music Consultant">
+  <meta property="twitter:description" content="Official website of DJ Philipp Straub. International Techno DJ, Producer, and leading Nightlife Strategist & Hospitality Music Consultant. Discover sounds, sets, tour dates, and bookings.">
+  <meta property="twitter:image" content="https://www.philippstraub.com/img/phil_festival.png">
+
+  <!-- Structured Data: JSON-LD Schema for SEO Search Panels -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Philipp Straub",
+    "url": "https://www.philippstraub.com",
+    "logo": "https://philippstraub.com/wp-content/uploads/2018/10/logo_Philipp_Straub_white.png",
+    "sameAs": [
+      "https://www.instagram.com/philippstraub/",
+      "https://www.facebook.com/DjPhilippStraub",
+      "https://soundcloud.com/philippstraub",
+      "https://x.com/philippstraub",
+      "https://www.youtube.com/felipestraub",
+      "https://ra.co/dj/philippstraub"
+    ],
+    "genre": ["Techno", "Electronic", "Progressive House"],
+    "description": "Philipp Straub is an international DJ, music producer, and nightlife strategist & hospitality music consultant based in Vienna, Austria, performing worldwide at major festivals and clubs.",
+    "knowsAbout": ["Music Production", "DJing", "Hospitality Consulting", "Sound Branding"]
+  }
+  </script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +69,7 @@
     <header class="main-header">
       <div class="header-logo">
         <a href="#dashboard">
-          <img src="https://philippstraub.com/wp-content/uploads/2018/10/logo_Philipp_Straub_white.png" alt="Philipp Straub Logo" class="brand-logo">
+          <img src="https://philippstraub.com/wp-content/uploads/2018/10/logo_Philipp_Straub_white.png" alt="Philipp Straub Logo" class="brand-logo" decoding="async">
         </a>
       </div>
       <nav class="header-nav">
@@ -64,14 +106,14 @@
       <section id="card-profile" class="bento-card card-profile card-glow-effect">
         <!-- Emotive background image with slow animation -->
         <div class="card-bg-image-wrapper">
-          <img src="img/phil_festival.png" alt="Philipp Straub Live Performance" class="card-bg-image">
+          <img src="img/phil_festival.png" alt="Philipp Straub Live Performance" class="card-bg-image" decoding="async">
         </div>
         
         <div class="card-border-glow"></div>
         <div class="card-content">
           <div class="profile-header">
             <div class="portrait-container">
-              <img src="img/phil_facebook.jpg" alt="Philipp Straub Portrait" class="portrait-img">
+              <img src="img/phil_facebook.jpg" alt="Philipp Straub Portrait" class="portrait-img" decoding="async">
             </div>
             <div class="profile-title">
               <span class="label-badge">CH_01 // THE CORE</span>
@@ -116,7 +158,7 @@
       <section id="card-consulting" class="bento-card card-consulting card-glow-effect">
         <!-- Emotive background image representing hotel consulting with slow zoom -->
         <div class="card-bg-image-wrapper">
-          <img src="img/phil_at_work.png" alt="Luxury Hotel Resort Consulting" class="card-bg-image">
+          <img src="img/phil_at_work.png" alt="Luxury Hotel Resort Consulting" class="card-bg-image" decoding="async">
         </div>
         
         <div class="card-border-glow"></div>
@@ -283,7 +325,7 @@
         <span class="modal-badge" data-i18n="modal_badge">FULL BIOGRAPHY</span>
         <h2>PHILIPP STRAUB</h2>
         <div class="modal-image">
-          <img src="img/phil_hdl3224.jpg" alt="Philipp Straub Stage">
+          <img src="img/phil_hdl3224.jpg" alt="Philipp Straub Stage" decoding="async" loading="lazy">
         </div>
         <div class="modal-text">
           <p class="legible-text" data-i18n="modal_p1">Philipp Straub gilt als einer der wichtigsten Pioniere der elektronischen Musikszene in Zentraleuropa. Seine musikalische Laufbahn begann in den frühen 1990er Jahren, als er mit wegweisenden Musikprojekten den Grundstein für die wachsende Rave-Kultur legte.</p>
