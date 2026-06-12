@@ -523,6 +523,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const langSelect = document.getElementById('lang-select');
   
+  function updateLangSelectLabels() {
+    const isMobile = window.innerWidth <= 768;
+    const options = {
+      de: isMobile ? 'DE' : 'DE (Deutsch)',
+      en: isMobile ? 'EN' : 'EN (English)',
+      ar: isMobile ? 'AR' : 'AR (العربية)',
+      hi: isMobile ? 'HI' : 'HI (हिन्दी)',
+      zh: isMobile ? 'ZH' : 'ZH (中文)'
+    };
+    
+    if (langSelect) {
+      Array.from(langSelect.options).forEach(opt => {
+        const val = opt.value;
+        if (options[val]) {
+          opt.text = options[val];
+        }
+      });
+    }
+  }
+
   function setLanguage(lang) {
     // Save language preference in localStorage
     localStorage.setItem('preferred-lang', lang);
@@ -564,6 +584,10 @@ document.addEventListener('DOMContentLoaded', () => {
       setLanguage(e.target.value);
     });
   }
+
+  // Initial update for labels and listeners
+  updateLangSelectLabels();
+  window.addEventListener('resize', updateLangSelectLabels);
 
   // Load preferred language or default to German ('de')
   const savedLang = localStorage.getItem('preferred-lang') || 'de';
