@@ -189,6 +189,51 @@ body::before {
   display: none;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: var(--transition-fast);
+}
+
+.lang-btn:hover {
+  color: #fff;
+}
+
+.lang-btn.active {
+  color: var(--color-neon-cyan);
+}
+
+.lang-separator {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 10px;
+  user-select: none;
+}
+
 .sys-info {
   font-family: monospace;
   font-size: 10px;
@@ -1003,6 +1048,10 @@ body::before {
   .brand-logo {
     height: 16px !important;
     margin: 0 !important;
+  }
+  
+  .header-actions {
+    gap: 16px !important;
   }
   
   /* Hamburger Menu Toggle Button */

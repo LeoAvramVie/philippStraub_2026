@@ -225,13 +225,21 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (epkBtn) {
     epkBtn.addEventListener('click', () => {
-      alert("INITIATING B2B DOWNLOAD PACKAGE...\nphilipp_straub_epk_2026.zip [14.5 MB]");
+      const lang = localStorage.getItem('preferred-lang') || 'de';
+      const msg = lang === 'de' 
+        ? "B2B-DOWNLOAD-PAKET WIRD GESTARTET...\nphilipp_straub_epk_2026.zip [14.5 MB]" 
+        : "INITIATING B2B DOWNLOAD PACKAGE...\nphilipp_straub_epk_2026.zip [14.5 MB]";
+      alert(msg);
     });
   }
   
   if (riderBtn) {
     riderBtn.addEventListener('click', () => {
-      alert("INITIATING TECHNICAL RIDER DOWNLOAD...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]");
+      const lang = localStorage.getItem('preferred-lang') || 'de';
+      const msg = lang === 'de' 
+        ? "BÜHNEN-SETUP & RIDER-DOWNLOAD WIRD GESTARTET...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]" 
+        : "INITIATING TECHNICAL RIDER DOWNLOAD...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]";
+      alert(msg);
     });
   }
 
@@ -282,4 +290,142 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(targetCard);
     }
   });
+
+  // 9. CLIENT-SIDE TRANSLATION SYSTEM (i18n)
+  const translations = {
+    de: {
+      nav_profile: "PROFIL",
+      nav_music: "MUSIK",
+      nav_consulting: "CONSULTING",
+      nav_gigs: "GIGS",
+      nav_contact: "KONTAKT",
+      profile_subtitle: "DJ, Producer & Nightlife-Architekt",
+      profile_desc: "Seit fast 30 Jahren prägt Philipp Straub die elektronische Musikszene. Als international tourender Künstler verbindet er emotionale Progressive- und Techno-Sets mit einer B2B-Rolle als Berater für Entertainment- und Hospitality-Marken.",
+      profile_bio_btn: "BIOGRAFIE LESEN ➔",
+      music_title: "SOUNDS & SETS",
+      consulting_title: "NIGHTLIFE ARCHITECT",
+      consulting_intro: "Philipp berät globale Player an der Schnittstelle von Clubkultur und Luxus-Gastronomie.",
+      consulting_role1: "Music Director",
+      consulting_desc1: "Verantwortlich für das musikalische Line-up und Sound-Branding in Dubai & Ibiza.",
+      consulting_role2: "Creative Advisor",
+      consulting_desc2: "Strategische Beratung zur Kuration und Modernisierung der Club-Events auf Ibiza.",
+      gigs_title: "TOUR-TERMINE",
+      gigs_th_date: "DATUM",
+      gigs_th_venue: "CLUB / VENUE",
+      gigs_th_location: "ORT",
+      gigs_th_status: "STATUS",
+      gigs_status_tickets: "TICKETS",
+      gigs_status_free: "FREI",
+      downloads_title: "PRESSE & TECHNIK",
+      downloads_intro: "Sofortiger Zugriff auf hochauflösende Promo-Materialien und Bühnen-Spezifikationen.",
+      downloads_epk_title: "DOWNLOAD EPK",
+      downloads_epk_meta: "Bio, Pressefotos // ZIP 14.5MB",
+      downloads_rider_title: "TECHNICAL RIDER",
+      downloads_rider_meta: "Bühnen-Setup, Anforderungen // PDF 1.2MB",
+      contact_title: "B2B KONTAKT",
+      contact_name: "NAME / FIRMA",
+      contact_email: "EMAIL",
+      contact_message: "DEINE ANFRAGE (BOOKING ODER CONSULTING)...",
+      contact_submit_btn: "ANFRAGE SENDEN ➔",
+      contact_success_text: "ANFRAGE ERFOLGREICH ÜBERMITTELT. ✓",
+      socials_title: "CONNECT",
+      socials_intro: "Folge Philipp Straub auf seinen offiziellen Kanälen.",
+      modal_badge: "VOLLSTÄNDIGE BIOGRAFIE",
+      modal_p1: "Philipp Straub gilt als einer der wichtigsten Pioniere der elektronischen Musikszene in Zentraleuropa. Seine musikalische Laufbahn begann in den frühen 1990er Jahren, als er mit wegweisenden Musikprojekten den Grundstein für die wachsende Rave-Kultur legte.",
+      modal_p2: "Als internationaler DJ bereiste er seither über 100 Länder und trat in namhaften Clubs und auf Festivals weltweit auf. Seine tiefen, atmosphärischen Sets zeichnen sich durch ein breites Spektrum aus melodischem Techno, Tech House und Progressive House aus.",
+      modal_p3: "Neben seiner künstlerischen Arbeit ist Philipp Straub ein gefragter Stratege und Berater in der Nightlife- und Hotelbranche. Seine fundierte Branchenkenntnis macht ihn zum Bindeglied zwischen kreativem Musikkonzept und anspruchsvollem Premium-Hospitality-Design. Als Musikdirektor für führende Hotelketten und weltberühmte Clubs gestaltet er die Nightlife-Erlebnisse von morgen.",
+      modal_connect: "MIT PHILIPP VERBINDEN",
+      footer_copyright: "&copy; 2026 Philipp Straub. Alle Rechte vorbehalten."
+    },
+    en: {
+      nav_profile: "PROFILE",
+      nav_music: "MUSIC",
+      nav_consulting: "CONSULTING",
+      nav_gigs: "GIGS",
+      nav_contact: "CONTACT",
+      profile_subtitle: "DJ, Producer & Nightlife Architect",
+      profile_desc: "For nearly 30 years, Philipp Straub has shaped the electronic music scene. As an internationally touring artist, he blends emotional progressive and techno sets with a B2B role as a consultant for entertainment and hospitality brands.",
+      profile_bio_btn: "READ BIOGRAPHY ➔",
+      music_title: "SOUNDS & SETS",
+      consulting_title: "NIGHTLIFE ARCHITECT",
+      consulting_intro: "Philipp consults global players at the intersection of club culture and luxury hospitality.",
+      consulting_role1: "Music Director",
+      consulting_desc1: "Responsible for the musical line-up and sound-branding in Dubai & Ibiza.",
+      consulting_role2: "Creative Advisor",
+      consulting_desc2: "Strategic advising on the curation and modernization of club events in Ibiza.",
+      gigs_title: "TOUR DATES",
+      gigs_th_date: "DATE",
+      gigs_th_venue: "VENUE",
+      gigs_th_location: "LOCATION",
+      gigs_th_status: "STATUS",
+      gigs_status_tickets: "TICKETS",
+      gigs_status_free: "FREE",
+      downloads_title: "PRESS & TECHNICAL",
+      downloads_intro: "Instant access to high-resolution promo materials and stage specifications.",
+      downloads_epk_title: "DOWNLOAD EPK",
+      downloads_epk_meta: "Bio, Press Photos // ZIP 14.5MB",
+      downloads_rider_title: "TECHNICAL RIDER",
+      downloads_rider_meta: "Stage setup, requirements // PDF 1.2MB",
+      contact_title: "B2B CONTACT",
+      contact_name: "NAME / COMPANY",
+      contact_email: "EMAIL",
+      contact_message: "YOUR INQUIRY (BOOKING OR CONSULTING)...",
+      contact_submit_btn: "SEND INQUIRY ➔",
+      contact_success_text: "INQUIRY SUCCESSFULLY SENT. ✓",
+      socials_title: "CONNECT",
+      socials_intro: "Follow Philipp Straub on his official channels.",
+      modal_badge: "FULL BIOGRAPHY",
+      modal_p1: "Philipp Straub is considered one of the most important pioneers of the electronic music scene in Central Europe. His musical career began in the early 1990s when he laid the foundation for the growing rave culture with groundbreaking music projects.",
+      modal_p2: "As an international DJ, he has since traveled to over 100 countries and performed in renowned clubs and at festivals worldwide. His deep, atmospheric sets are characterized by a wide spectrum of melodic techno, tech house, and progressive house.",
+      modal_p3: "In addition to his artistic work, Philipp Straub is a sought-after strategist and consultant in the nightlife and hotel industry. His profound industry knowledge makes him the link between creative music concepts and sophisticated premium hospitality design. As music director for leading hotel chains and world-famous clubs, he shapes the nightlife experiences of tomorrow.",
+      modal_connect: "CONNECT WITH PHILIPP",
+      footer_copyright: "&copy; 2026 Philipp Straub. All rights reserved."
+    }
+  };
+
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  function setLanguage(lang) {
+    // Save language preference in localStorage
+    localStorage.setItem('preferred-lang', lang);
+    
+    // Update active button state
+    langButtons.forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Translate all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+
+    // Translate all elements with data-i18n-placeholder attribute
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[lang] && translations[lang][key]) {
+        el.setAttribute('placeholder', translations[lang][key]);
+      }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.setAttribute('lang', lang);
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      setLanguage(lang);
+    });
+  });
+
+  // Load preferred language or default to German ('de')
+  const savedLang = localStorage.getItem('preferred-lang') || 'de';
+  setLanguage(savedLang);
 });
