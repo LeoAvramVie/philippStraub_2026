@@ -39,9 +39,13 @@
       </nav>
       <div class="header-actions">
         <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="de">DE</button>
-          <span class="lang-separator">/</span>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <select id="lang-select" class="lang-select" aria-label="Language / Sprache">
+            <option value="de">🇩🇪 DE (Deutsch)</option>
+            <option value="en">🇬🇧 EN (English)</option>
+            <option value="ar">🇦🇪 AR (العربية)</option>
+            <option value="hi">🇮🇳 HI (हिन्दी)</option>
+            <option value="zh">🇨🇳 ZH (中文)</option>
+          </select>
         </div>
         <!-- Mobile Menu Toggle Button -->
         <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen">

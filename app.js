@@ -226,9 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (epkBtn) {
     epkBtn.addEventListener('click', () => {
       const lang = localStorage.getItem('preferred-lang') || 'de';
-      const msg = lang === 'de' 
-        ? "B2B-DOWNLOAD-PAKET WIRD GESTARTET...\nphilipp_straub_epk_2026.zip [14.5 MB]" 
-        : "INITIATING B2B DOWNLOAD PACKAGE...\nphilipp_straub_epk_2026.zip [14.5 MB]";
+      const msg = (translations[lang] && translations[lang].download_epk_alert) || translations['en'].download_epk_alert;
       alert(msg);
     });
   }
@@ -236,9 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (riderBtn) {
     riderBtn.addEventListener('click', () => {
       const lang = localStorage.getItem('preferred-lang') || 'de';
-      const msg = lang === 'de' 
-        ? "BÜHNEN-SETUP & RIDER-DOWNLOAD WIRD GESTARTET...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]" 
-        : "INITIATING TECHNICAL RIDER DOWNLOAD...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]";
+      const msg = (translations[lang] && translations[lang].download_rider_alert) || translations['en'].download_rider_alert;
       alert(msg);
     });
   }
@@ -335,7 +331,9 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "Als internationaler DJ bereiste er seither über 100 Länder und trat in namhaften Clubs und auf Festivals weltweit auf. Seine tiefen, atmosphärischen Sets zeichnen sich durch ein breites Spektrum aus melodischem Techno, Tech House und Progressive House aus.",
       modal_p3: "Neben seiner künstlerischen Arbeit ist Philipp Straub ein gefragter Stratege und Berater in der Nightlife- und Hotelbranche. Seine fundierte Branchenkenntnis macht ihn zum Bindeglied zwischen kreativem Musikkonzept und anspruchsvollem Premium-Hospitality-Design. Als Musikdirektor für führende Hotelketten und weltberühmte Clubs gestaltet er die Nightlife-Erlebnisse von morgen.",
       modal_connect: "MIT PHILIPP VERBINDEN",
-      footer_copyright: "&copy; 2026 Philipp Straub. Alle Rechte vorbehalten."
+      footer_copyright: "&copy; 2026 Philipp Straub. Alle Rechte vorbehalten.",
+      download_epk_alert: "B2B-DOWNLOAD-PAKET WIRD GESTARTET...\nphilipp_straub_epk_2026.zip [14.5 MB]",
+      download_rider_alert: "BÜHNEN-SETUP & RIDER-DOWNLOAD WIRD GESTARTET...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     },
     en: {
       nav_profile: "PROFILE",
@@ -379,24 +377,167 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "As an international DJ, he has since traveled to over 100 countries and performed in renowned clubs and at festivals worldwide. His deep, atmospheric sets are characterized by a wide spectrum of melodic techno, tech house, and progressive house.",
       modal_p3: "In addition to his artistic work, Philipp Straub is a sought-after strategist and consultant in the nightlife and hotel industry. His profound industry knowledge makes him the link between creative music concepts and sophisticated premium hospitality design. As music director for leading hotel chains and world-famous clubs, he shapes the nightlife experiences of tomorrow.",
       modal_connect: "CONNECT WITH PHILIPP",
-      footer_copyright: "&copy; 2026 Philipp Straub. All rights reserved."
+      footer_copyright: "&copy; 2026 Philipp Straub. All rights reserved.",
+      download_epk_alert: "INITIATING B2B DOWNLOAD PACKAGE...\nphilipp_straub_epk_2026.zip [14.5 MB]",
+      download_rider_alert: "INITIATING TECHNICAL RIDER DOWNLOAD...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
+    },
+    ar: {
+      nav_profile: "الملف الشخصي",
+      nav_music: "الموسيقى",
+      nav_consulting: "الاستشارات",
+      nav_gigs: "الحفلات",
+      nav_contact: "الاتصال",
+      profile_subtitle: "دي جي، منتج ومهندس الحياة الليلية",
+      profile_desc: "لأكثر من 30 عامًا، ساهم فيليب شتراوب في تشكيل مشهد الموسيقى الإلكترونية. كفنان يجول العالم، يدمج بين مجموعات التقدمية والتكنو العاطفية ودوره كمستشار للشركات الترفيهية والضيافة.",
+      profile_bio_btn: "قراءة السيرة الذاتية ➔",
+      music_title: "الأصوات والمجموعات",
+      consulting_title: "مهندس الحياة الليلية",
+      consulting_intro: "فيليب يقدم الاستشارات للشركات العالمية في تقاطع ثقافة النوادي والضيافة الفاخرة.",
+      consulting_role1: "المدير الموسيقي",
+      consulting_desc1: "مسؤول عن التنسيق الموسيقي والهوية الصوتية في دبي وإيبيزا.",
+      consulting_role2: "المستشار الإبداعي",
+      consulting_desc2: "استشارات استراتيجية لتنسيق وتحديث فعاليات النوادي في إيبيزا.",
+      gigs_title: "مواعيد الحفلات",
+      gigs_th_date: "التاريخ",
+      gigs_th_venue: "الموقع",
+      gigs_th_location: "البلد/المدينة",
+      gigs_th_status: "الحالة",
+      gigs_status_tickets: "التذاكر",
+      gigs_status_free: "مجاني",
+      downloads_title: "الصحافة والملف التقني",
+      downloads_intro: "وصول فوري للمواد الترويجية عالية الدقة والمواصفات التقنية للمسرح.",
+      downloads_epk_title: "تحميل الملف الصحفي EPK",
+      downloads_epk_meta: "السيرة الذاتية، صور صحفية // ZIP 14.5MB",
+      downloads_rider_title: "الملف التقني RIDER",
+      downloads_rider_meta: "إعداد المسرح، المتطلبات // PDF 1.2MB",
+      contact_title: "الاتصال للأعمال B2B",
+      contact_name: "الاسم / الشركة",
+      contact_email: "البريد الإلكتروني",
+      contact_message: "طلبك (حجز أو استشارة)...",
+      contact_submit_btn: "إرسال الطلب ➔",
+      contact_success_text: "تم إرسال الطلب بنجاح. ✓",
+      socials_title: "تواصل",
+      socials_intro: "تابع فيليب شتراوب على قنواته الرسمية.",
+      modal_badge: "السيرة الذاتية الكاملة",
+      modal_p1: "يعتبر فيليب شتراوب أحد أهم رواد مشهد الموسيقى الإلكترونية في وسط أوروبا. بدأت مسيرته الموسيقية في أوائل التسعينيات عندما وضع حجر الأساس لثقافة الحفلات المتنامية بمشاريع موسيقية رائدة.",
+      modal_p2: "كدي جي عالمي، سافر منذ ذلك الحين إلى أكثر من 100 دولة وقدم عروضه في نوادي شهيرة ومهرجانات حول العالم. تتميز مجموعاته العميقة والجوية بمزيج واسع من التكنو الميلودي، التيك هاوس، والبروجريسيف هاوس.",
+      modal_p3: "إلى جانب عمله الفني، فيليب شتراوب استراتيجي ومستشار مطلوب في قطاع الحياة الليلية والفنادق. معرفته العميقة بالصناعة تجعله حلقة الوصل بين المفهوم الموسيقي الإبداعي وتصميم الضيافة المتميز. كمدير موسيقي لسلاسل الفنادق الرائدة والنوادي ذات الشهرة العالمية، يقوم بصياغة تجارب الحياة الليلية للغد.",
+      modal_connect: "تواصل مع فيليب",
+      footer_copyright: "&copy; 2026 فيليب شتراوب. جميع الحقوق محفوظة.",
+      download_epk_alert: "بدء تحميل حزمة B2B...\nphilipp_straub_epk_2026.zip [14.5 MB]",
+      download_rider_alert: "بدء تحميل الملف التقني وإعداد المسرح...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
+    },
+    hi: {
+      nav_profile: "प्रोफ़ाइल",
+      nav_music: "संगीत",
+      nav_consulting: "परामर्श",
+      nav_gigs: "शो",
+      nav_contact: "संपर्क",
+      profile_subtitle: "डीजे, निर्माता और नाइटलाइफ़ आर्किटेक्ट",
+      profile_desc: "लगभग 30 वर्षों से, फिलिप स्ट्रॉब ने इलेक्ट्रॉनिक संगीत परिदृश्य को आकार दिया है। एक अंतरराष्ट्रीय स्तर पर दौरा करने वाले कलाकार के रूप में, वह मनोरंजन और आतिथ्य ब्रांडों के सलाहकार के रूप में एक B2B भूमिका के साथ भावनात्मक प्रोग्रेसिव और टेक्नो सेट का संयोजन करते हैं।",
+      profile_bio_btn: "जीवनी पढ़ें ➔",
+      music_title: "साउंड्स और सेट्स",
+      consulting_title: "नाइटलाइफ़ आर्किटेक्ट",
+      consulting_intro: "फिलिप क्लब संस्कृति और लक्जरी आतिथ्य के संगम पर वैश्विक दिग्गजों को परामर्श देते हैं।",
+      consulting_role1: "संगीत निर्देशक",
+      consulting_desc1: "दुबई और इबीसा में संगीत लाइन-अप और साउंड-ब्रांडिंग के लिए जिम्मेदार।",
+      consulting_role2: "रचनात्मक सलाहकार",
+      consulting_desc2: "इबीसा में क्लब कार्यक्रमों के क्यूरेशन और आधुनिकीकरण पर रणनीतिक सलाह।",
+      gigs_title: "टूर की तारीखें",
+      gigs_th_date: "तारीख",
+      gigs_th_venue: "स्थान",
+      gigs_th_location: "स्थान/शहर",
+      gigs_th_status: "स्थिति",
+      gigs_status_tickets: "टिकट",
+      gigs_status_free: "मुफ़्त",
+      downloads_title: "प्रेस और तकनीकी",
+      downloads_intro: "हाई-रिज़ॉल्यूशन प्रोमो सामग्री और स्टेज विशिष्टताओं तक त्वरित पहुंच।",
+      downloads_epk_title: "EPK डाउनलोड करें",
+      downloads_epk_meta: "बायो, प्रेस तस्वीरें // ZIP 14.5MB",
+      downloads_rider_title: "तकनीकी राइडर",
+      downloads_rider_meta: "स्टेज सेटअप, आवश्यकताएं // PDF 1.2MB",
+      contact_title: "B2B संपर्क",
+      contact_name: "नाम / कंपनी",
+      contact_email: "ईमेल",
+      contact_message: "आपकी पूछताछ (बुकिंग या परामर्श)...",
+      contact_submit_btn: "पूछताछ भेजें ➔",
+      contact_success_text: "पूछताछ सफलतापूर्वक भेजी गई। ✓",
+      socials_title: "जुड़ें",
+      socials_intro: "फिलिप स्ट्रॉब को उनके आधिकारिक चैनलों पर फॉलो करें।",
+      modal_badge: "पूरी जीवनी",
+      modal_p1: "फिलिप स्ट्रॉब को मध्य यूरोप में इलेक्ट्रॉनिक संगीत परिदृश्य के सबसे महत्वपूर्ण अग्रदूतों में से एक माना जाता है। उनका संगीत करियर 1990 के दशक की शुरुआत में शुरू हुआ था जब उन्होंने अभूतपूर्व संगीत परियोजनाओं के साथ बढ़ती रेव संस्कृति की नींव रखी थी।",
+      modal_p2: "एक अंतरराष्ट्रीय डीजे के रूप में, उन्होंने तब से 100 से अधिक देशों की यात्रा की है और दुनिया भर के प्रसिद्ध क्लबों और त्योहारों में प्रदर्शन किया है। उनके गहरे, वायुमंडलीय सेटों में मेलोडिक टेक्नो, टेक हाउस और प्रोग्रेसिव हाउस का एक विस्तृत स्पेक्ट्रम शामिल है।",
+      modal_p3: "अपने कलात्मक काम के अलावा, फिलिप स्ट्रॉब नाइटलाइफ़ और होटल उद्योग में एक मांग वाले रणनीतिकार और सलाहकार हैं। उनका गहरा उद्योग ज्ञान उन्हें रचनात्मक संगीत अवधारणाओं और परिष्कृत प्रीमियम आतिथ्य डिजाइन के बीच की कड़ी बनाता है। अग्रणी होटल श्रृंखलाओं और विश्व प्रसिद्ध क्लबों के संगीत निर्देशक के रूप में, वह कल के नाइटलाइफ़ अनुभवों को आकार देते हैं।",
+      modal_connect: "फिलिप से जुड़ें",
+      footer_copyright: "&copy; 2026 फिलिप स्ट्रॉब। सर्वाधिकार सुरक्षित।",
+      download_epk_alert: "B2B डाउनलोड पैकेज शुरू किया जा रहा है...\nphilipp_straub_epk_2026.zip [14.5 MB]",
+      download_rider_alert: "तकनीकी राइडर डाउनलोड शुरू किया जा रहा है...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
+    },
+    zh: {
+      nav_profile: "个人简介",
+      nav_music: "音乐作品",
+      nav_consulting: "咨询服务",
+      nav_gigs: "演出日程",
+      nav_contact: "业务联系",
+      profile_subtitle: "DJ、制作人及夜生活规划师",
+      profile_desc: "近30年来，Philipp Straub一直在塑造电子音乐界。作为一名国际巡演艺术家，他将富有情感的渐进/前卫（Progressive）与泰克诺（Techno）音乐现场，与为娱乐和酒店品牌提供咨询的B2B顾问角色完美结合。",
+      profile_bio_btn: "阅读个人传记 ➔",
+      music_title: "音乐与现场",
+      consulting_title: "夜生活规划师",
+      consulting_intro: "Philipp 在俱乐部文化与奢华酒店业的交汇处为全球客户提供咨询。",
+      consulting_role1: "音乐总监",
+      consulting_desc1: "负责迪拜和 Ibiza 的音乐阵容编排与声音品牌定位。",
+      consulting_role2: "创意顾问",
+      consulting_desc2: "针对 Ibiza 俱乐部活动的策划与现代化提供战略咨询。",
+      gigs_title: "巡演日程",
+      gigs_th_date: "日期",
+      gigs_th_venue: "场地",
+      gigs_th_location: "城市/国家",
+      gigs_th_status: "状态",
+      gigs_status_tickets: "购票",
+      gigs_status_free: "免票",
+      downloads_title: "媒体与技术资料",
+      downloads_intro: "即时获取高分辨率宣传资料与舞台技术规格要求。",
+      downloads_epk_title: "下载电子宣传册 (EPK)",
+      downloads_epk_meta: "个人简介、宣传照 // ZIP 14.5MB",
+      downloads_rider_title: "技术规格要求 (RIDER)",
+      downloads_rider_meta: "舞台设置、技术要求 // PDF 1.2MB",
+      contact_title: "B2B 商务联系",
+      contact_name: "姓名 / 公司",
+      contact_email: "电子邮箱",
+      contact_message: "您的咨询内容（演出预订或项目咨询）...",
+      contact_submit_btn: "发送咨询 ➔",
+      contact_success_text: "咨询内容已成功发送。✓",
+      socials_title: "社交媒体",
+      socials_intro: "在官方渠道关注 Philipp Straub。",
+      modal_badge: "完整传记",
+      modal_p1: "Philipp Straub 被认为是中欧电子音乐界最重要的先驱之一。他的音乐生涯始于1990年代初期，当时他通过开创性的音乐项目为日益壮大的 Rave 文化奠定了基础。",
+      modal_p2: "作为一名国际 DJ，他此后旅行了100多个国家，并在全球著名的俱乐部和音乐节上演出。他深邃、充满氛围感的现场涵盖了旋律泰克诺（Melodic Techno）、泰克朋克（Tech House）和渐进浩室（Progressive House）。",
+      modal_p3: "除了艺术创作，Philipp Straub 也是夜生活和酒店行业备受追捧的战略家和顾问。他深厚的行业知识使他成为创意音乐概念与高端奢华酒店设计之间的纽带。作为领先酒店集团和世界著名俱乐部的音乐总监，他正在塑造明天的夜生活体验。",
+      modal_connect: "联系 Philipp",
+      footer_copyright: "&copy; 2026 Philipp Straub. 保留所有权利。",
+      download_epk_alert: "正在启动 B2B 宣传包下载...\nphilipp_straub_epk_2026.zip [14.5 MB]",
+      download_rider_alert: "正在启动技术规格要求 (RIDER) 下载...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     }
   };
 
-  const langButtons = document.querySelectorAll('.lang-btn');
+  const langSelect = document.getElementById('lang-select');
   
   function setLanguage(lang) {
     // Save language preference in localStorage
     localStorage.setItem('preferred-lang', lang);
     
-    // Update active button state
-    langButtons.forEach(btn => {
-      if (btn.getAttribute('data-lang') === lang) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
+    // Update select element value
+    if (langSelect) {
+      langSelect.value = lang;
+    }
+
+    // Toggle document direction (RTL) for Arabic
+    if (lang === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.removeAttribute('dir');
+    }
 
     // Translate all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -418,12 +559,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('lang', lang);
   }
 
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      setLanguage(lang);
+  if (langSelect) {
+    langSelect.addEventListener('change', (e) => {
+      setLanguage(e.target.value);
     });
-  });
+  }
 
   // Load preferred language or default to German ('de')
   const savedLang = localStorage.getItem('preferred-lang') || 'de';

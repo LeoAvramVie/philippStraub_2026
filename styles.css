@@ -207,7 +207,7 @@ body::before {
   -webkit-backdrop-filter: blur(8px);
 }
 
-.lang-btn {
+.lang-select {
   background: transparent;
   border: none;
   color: var(--color-text-muted);
@@ -216,22 +216,29 @@ body::before {
   font-size: 10px;
   letter-spacing: 1px;
   cursor: pointer;
-  padding: 2px 4px;
+  outline: none;
+  padding: 2px 18px 2px 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239fa0b5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 8px;
   transition: var(--transition-fast);
 }
 
-.lang-btn:hover {
+.lang-select:hover {
   color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
-.lang-btn.active {
-  color: var(--color-neon-cyan);
-}
-
-.lang-separator {
-  color: rgba(255, 255, 255, 0.15);
-  font-size: 10px;
-  user-select: none;
+.lang-select option {
+  background: var(--bg-card);
+  color: var(--color-text-main);
+  border: none;
+  font-size: 12px;
+  padding: 6px;
 }
 
 .sys-info {
@@ -855,6 +862,7 @@ body::before {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+  direction: ltr;
 }
 
 .modal-overlay::before {
@@ -1309,6 +1317,55 @@ body::before {
   .social-svg {
     width: 22px !important;
     height: 22px !important;
+  }
+}
+
+/* ==========================================================================
+   8. RIGHT-TO-LEFT (RTL) LAYOUT OVERRIDES
+   ========================================================================== */
+
+[dir="rtl"] .lang-select {
+  padding: 2px 4px 2px 18px;
+  background-position: left 4px center;
+}
+
+[dir="rtl"] .gigs-table th {
+  text-align: right;
+}
+
+[dir="rtl"] .download-btn {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .download-btn .btn-info {
+  align-items: flex-start;
+}
+
+[dir="rtl"] .close-modal-btn {
+  right: auto;
+  left: 30px;
+}
+
+[dir="rtl"] .modal-body {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .bento-form input,
+[dir="rtl"] .bento-form textarea {
+  text-align: right;
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .header-logo {
+    text-align: right !important;
+  }
+  
+  [dir="rtl"] .close-modal-btn {
+    right: auto;
+    left: 20px;
   }
 }
 
