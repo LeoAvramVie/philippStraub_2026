@@ -185,6 +185,10 @@ body::before {
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .sys-info {
   font-family: monospace;
   font-size: 10px;
@@ -979,52 +983,114 @@ body::before {
   }
   
   .main-header {
-    flex-direction: column;
-    height: auto;
-    padding: 24px 0;
-    gap: 16px;
-    border-bottom: 1px solid var(--color-border);
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 70px !important;
+    padding: 0 16px !important;
+    position: sticky;
+    top: 0;
+    background: rgba(11, 12, 16, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
   }
   
   .header-logo {
-    text-align: center;
+    text-align: left !important;
   }
   
   .brand-logo {
-    height: 18px;
-    margin: 0 auto;
+    height: 16px !important;
+    margin: 0 !important;
   }
   
-  /* Horizontal scrolling navigation bar on mobile for perfect thumb reach */
-  .header-nav {
-    display: flex;
-    overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
-    padding: 6px 4px;
-    gap: 10px;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
+  /* Hamburger Menu Toggle Button */
+  .menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
     background: transparent;
     border: none;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    position: relative;
+    cursor: pointer;
+    z-index: 101;
+    padding: 0;
+    outline: none;
   }
-  .header-nav::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for clean aesthetics */
+  
+  .hamburger-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-main);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .menu-toggle.open .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-toggle.open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Mobile Dropdown Menu Drawer Overlay */
+  .header-nav {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100vh - 70px) !important;
+    background: rgba(11, 12, 16, 0.98) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    padding: 40px 0 !important;
+    border: none !important;
+    border-top: 1px solid var(--color-border) !important;
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s, visibility 0.5s !important;
+    z-index: 99 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    overflow-x: hidden !important;
+  }
+  
+  .header-nav.open {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   .nav-link {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-    padding: 6px 14px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--color-border);
+    font-size: 18px !important;
+    letter-spacing: 3px !important;
+    padding: 12px 24px !important;
+    width: auto !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    white-space: normal !important;
+    transition: var(--transition-fast) !important;
+  }
+  
+  .nav-link.active {
+    color: var(--color-neon-cyan) !important;
+    background: transparent !important;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
+    box-shadow: none !important;
   }
   
   .sys-info {

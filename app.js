@@ -175,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. SMOOTH SCROLL NAVIGATION LINKS
   const navLinks = document.querySelectorAll('.nav-link');
+  const menuToggle = document.getElementById('menu-toggle');
+  const headerNav = document.querySelector('.header-nav');
   
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -192,8 +194,30 @@ document.addEventListener('DOMContentLoaded', () => {
           targetCard.style.borderColor = '';
         }, 1500);
       }
+
+      // Close mobile menu if open
+      if (headerNav && headerNav.classList.contains('open')) {
+        headerNav.classList.remove('open');
+        if (menuToggle) menuToggle.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   });
+
+  // Mobile Hamburger Toggle
+  if (menuToggle && headerNav) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = headerNav.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+      
+      // Prevent body scroll when menu is open
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
   // 6. DOWNLOAD TRIGGERS
   const epkBtn = document.getElementById('epk-btn');
@@ -243,18 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
-            
-            // Auto scroll nav container on mobile to keep active element visible
-            if (window.innerWidth <= 768) {
-              const navContainer = document.querySelector('.header-nav');
-              if (navContainer) {
-                const linkOffset = link.offsetLeft;
-                navContainer.scrollTo({
-                  left: linkOffset - (navContainer.clientWidth / 2) + (link.clientWidth / 2),
-                  behavior: 'smooth'
-                });
-              }
-            }
           } else {
             link.classList.remove('active');
           }
