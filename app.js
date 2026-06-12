@@ -228,4 +228,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 8. SCROLL SPY ACTIVE SECTIONS
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -50% 0px', // Trigger when section is in the top-middle range of the viewport
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+            
+            // Auto scroll nav container on mobile to keep active element visible
+            if (window.innerWidth <= 768) {
+              const navContainer = document.querySelector('.header-nav');
+              if (navContainer) {
+                const linkOffset = link.offsetLeft;
+                navContainer.scrollTo({
+                  left: linkOffset - (navContainer.clientWidth / 2) + (link.clientWidth / 2),
+                  behavior: 'smooth'
+                });
+              }
+            }
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  navLinks.forEach(link => {
+    const targetId = link.getAttribute('href');
+    const targetCard = document.querySelector(targetId);
+    if (targetCard) {
+      observer.observe(targetCard);
+    }
+  });
 });

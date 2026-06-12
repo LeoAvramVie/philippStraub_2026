@@ -126,8 +126,14 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 80px;
   border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: rgba(11, 12, 16, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
 }
 
 .brand-logo {
@@ -138,21 +144,44 @@ body::before {
 
 .header-nav {
   display: flex;
-  gap: 32px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.header-nav:hover {
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .nav-link {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 2.5px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   color: var(--color-text-muted);
+  padding: 8px 18px;
+  border-radius: 20px;
   transition: var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .nav-link:hover {
   color: #fff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--color-neon-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(0, 240, 255, 0.15);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
 }
 
 .sys-info {
@@ -193,21 +222,22 @@ body::before {
   padding: 40px 0;
 }
 
-/* Base Bento Card */
+/* Base Bento Card (Glassmorphism Concept) */
 .bento-card {
-  background-color: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(21, 22, 30, 0.55);
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
 }
 
 .bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(21, 22, 30, 0.65);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .card-content {
@@ -292,7 +322,7 @@ body::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, rgba(21, 22, 30, 0.95) 0%, rgba(21, 22, 30, 0.75) 55%, rgba(21, 22, 30, 0.15) 100%);
+  background: linear-gradient(90deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.6) 55%, rgba(21, 22, 30, 0.1) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -371,45 +401,10 @@ body::before {
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
 }
 
-.profile-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.profile-socials {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.social-icon {
-  color: var(--color-text-muted);
-  transition: var(--transition-fast);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--color-border);
-}
-
-.social-icon:hover {
-  color: #000;
-  border-color: var(--color-neon-cyan);
-  background: var(--color-neon-cyan);
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-}
-
-.icon-svg {
-  width: 16px;
-  height: 16px;
-  display: block;
+.modal-socials-section {
+  margin-top: 40px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 30px;
 }
 
 /* Card 2: Music Hub */
@@ -433,8 +428,8 @@ body::before {
 
 .platform-links {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .platform-btn {
@@ -465,7 +460,7 @@ body::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, rgba(21, 22, 30, 0.95) 0%, rgba(21, 22, 30, 0.75) 60%, rgba(21, 22, 30, 0.15) 100%);
+  background: linear-gradient(90deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.65) 60%, rgba(21, 22, 30, 0.1) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -497,7 +492,7 @@ body::before {
 /* Card 4: Tour dates */
 .card-gigs {
   grid-column: span 1;
-  grid-row: span 2;
+  grid-row: span 1;
 }
 
 .gigs-table-container {
@@ -709,6 +704,50 @@ body::before {
   display: none;
 }
 
+/* Card 7: Socials Hub */
+.card-socials {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.social-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 16px 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.social-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--color-text-highlight);
+  transition: var(--transition-fast);
+}
+
+.social-logo-item:hover {
+  color: #000;
+  background: var(--color-neon-cyan);
+  border-color: var(--color-neon-cyan);
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.social-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 /* ==========================================================================
    5. INTERACTIVE VERCEL-STYLE MOUSE BORDER GLOW
    ========================================================================== */
@@ -807,9 +846,9 @@ body::before {
   width: 500px;
   max-width: 100%;
   height: 100%;
-  background: rgba(15, 16, 21, 0.93);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(15, 16, 21, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-left: 1px solid var(--color-border);
   position: relative;
   z-index: 10;
@@ -922,6 +961,7 @@ body::before {
   .card-gigs { grid-column: span 1; grid-row: span 1; }
   .card-downloads { grid-column: span 1; }
   .card-contact { grid-column: span 1; }
+  .card-socials { grid-column: span 1; }
   
   #modal-canvas {
     width: calc(100% - 450px);
@@ -959,10 +999,16 @@ body::before {
     display: flex;
     overflow-x: auto;
     width: 100%;
-    padding: 6px 0;
-    gap: 20px;
+    padding: 6px 4px;
+    gap: 10px;
     justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
   .header-nav::-webkit-scrollbar {
     display: none; /* Hide scrollbar for clean aesthetics */
@@ -972,7 +1018,10 @@ body::before {
     font-size: 11px;
     letter-spacing: 1.5px;
     white-space: nowrap;
-    padding: 4px 6px;
+    padding: 6px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
   }
   
   .sys-info {
@@ -993,7 +1042,7 @@ body::before {
   
   /* Stacking gradient overlays vertically on mobile */
   .card-profile::after, .card-consulting::after {
-    background: linear-gradient(180deg, rgba(21, 22, 30, 0.95) 0%, rgba(21, 22, 30, 0.75) 70%, rgba(21, 22, 30, 0.2) 100%) !important;
+    background: linear-gradient(180deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.65) 70%, rgba(21, 22, 30, 0.15) 100%) !important;
   }
   
   .card-content {
@@ -1121,4 +1170,27 @@ body::before {
     gap: 12px;
     text-align: center;
   }
+
+  /* Responsive link grids on mobile */
+  .platform-links {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .social-logos-grid {
+    gap: 14px !important;
+    padding: 10px 0 !important;
+  }
+
+  .social-logo-item {
+    width: 50px !important;
+    height: 50px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .social-svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
 }
+
