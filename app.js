@@ -26,22 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseY = e.clientY;
   });
 
-  // 2. SYSTEM CLOCK
-  const timeDisplay = document.getElementById('time-display');
-  
-  function updateClock() {
-    const now = new Date();
-    const hrs = String(now.getHours()).padStart(2, '0');
-    const mins = String(now.getMinutes()).padStart(2, '0');
-    const secs = String(now.getSeconds()).padStart(2, '0');
-    
-    if (timeDisplay) {
-      timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
-    }
-  }
-  
-  updateClock();
-  setInterval(updateClock, 1000);
+
 
   // 3. BIOGRAPHY MODAL (DRAWER OVERLAY WITH WAVE CANVAS)
   const bioModal = document.getElementById('bio-modal');
@@ -588,6 +573,123 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial update for labels and listeners
   updateLangSelectLabels();
   window.addEventListener('resize', updateLangSelectLabels);
+
+  // 10. DYNAMIC TOUR DATES FROM BANDSINTOWN
+  const gigsList = document.getElementById('gigs-list');
+  const artistName = "Philipp Straub";
+  const bandsintownUrl = `https://rest.bandsintown.com/artists/${encodeURIComponent(artistName)}/events?app_id=philipp_straub`;
+
+  const fallbackEvents = [
+    {
+      datetime: "2026-06-18T22:00:00",
+      venue: { name: "Pacha Club", city: "Ibiza", country: "Spain" },
+      offers: [{ type: "Tickets", url: "https://pacha.com", status: "available" }]
+    },
+    {
+      datetime: "2026-07-04T18:00:00",
+      venue: { name: "FIVE Beach", city: "Dubai", country: "United Arab Emirates" },
+      offers: [{ type: "Tickets", url: "https://fivehotelsandresorts.com", status: "available" }]
+    },
+    {
+      datetime: "2026-08-15T20:00:00",
+      venue: { name: "Flex Terrace", city: "Vienna", country: "Austria" },
+      offers: []
+    }
+  ];
+
+  function getCountryCodeFallback(countryName) {
+    const mapping = {
+      "Spain": "ESP",
+      "United Arab Emirates": "UAE",
+      "Austria": "AUT",
+      "Germany": "GER",
+      "United Kingdom": "GBR",
+      "United States": "USA",
+      "Switzerland": "SUI"
+    };
+    return mapping[countryName] || countryName.substring(0, 3).toUpperCase();
+  }
+
+  function formatEventDate(isoString) {
+    const date = new Date(isoString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const standardMonths = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const month = standardMonths[date.getMonth()];
+    return `${day} / ${month}`;
+  }
+
+  function translateDynamicNodes(lang) {
+    if (!gigsList) return;
+    gigsList.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  }
+
+  function renderEvents(events) {
+    if (!gigsList) return;
+    gigsList.innerHTML = '';
+
+    if (events.length === 0) {
+      gigsList.innerHTML = `
+        <tr>
+          <td colspan="4" style="text-align: center; padding: 24px; color: var(--color-text-muted);" data-i18n="gigs_no_events">
+            No upcoming tour dates scheduled.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    events.forEach(evt => {
+      const dateStr = formatEventDate(evt.datetime);
+      const venueName = evt.venue.name;
+      const city = evt.venue.city;
+      const country = evt.venue.country;
+      const countryCode = country.length === 2 ? country : getCountryCodeFallback(country);
+      
+      const hasTickets = evt.offers && evt.offers.length > 0 && evt.offers[0].url;
+      const ticketUrl = hasTickets ? evt.offers[0].url : 'https://ra.co/dj/philippstraub';
+      const statusTextKey = hasTickets ? "gigs_status_tickets" : "gigs_status_free";
+      
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="gig-date">${dateStr}</td>
+        <td class="gig-venue">${venueName}</td>
+        <td class="gig-loc">${city}, ${countryCode}</td>
+        <td>
+          <a href="${ticketUrl}" target="_blank" class="status-pill active" style="text-decoration: none; display: inline-block;" data-i18n="${statusTextKey}">
+            TICKETS
+          </a>
+        </td>
+      `;
+      gigsList.appendChild(tr);
+    });
+
+    const activeLang = localStorage.getItem('preferred-lang') || 'de';
+    translateDynamicNodes(activeLang);
+  }
+
+  async function fetchTourDates() {
+    try {
+      const response = await fetch(bandsintownUrl);
+      if (!response.ok) throw new Error("API error");
+      const events = await response.json();
+      
+      if (events && Array.isArray(events) && events.length > 0) {
+        renderEvents(events);
+      } else {
+        renderEvents(fallbackEvents);
+      }
+    } catch (err) {
+      console.warn("Bandsintown fetch failed, using local fallback dates:", err);
+      renderEvents(fallbackEvents);
+    }
+  }
+
+  fetchTourDates();
 
   // Load preferred language or default to German ('de')
   const savedLang = localStorage.getItem('preferred-lang') || 'de';

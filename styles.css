@@ -137,6 +137,30 @@ body::before {
 }
 
 /* ==========================================================================
+   DESKTOP SCREEN LAYOUT TWEAKS (min-width: 769px)
+   ========================================================================== */
+@media (min-width: 769px) {
+  .lang-switcher {
+    padding: 3px 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-end: 16px;
+  }
+  .lang-select {
+    height: 18px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0 16px 0 4px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+  [dir="rtl"] .lang-select {
+    padding: 0 4px 0 16px;
+  }
+}
+
+/* ==========================================================================
    1. MAIN HEADER
    ========================================================================== */
 
@@ -854,6 +878,90 @@ body::before {
 }
 
 /* ==========================================================================
+   4A. BENTO CARD BACKGROUND IMAGE EFFECTS
+   ========================================================================== */
+
+/* Shared properties for card background pseudo-elements */
+.card-music::before,
+.card-gigs::before,
+.card-downloads::before,
+.card-contact::before,
+.card-socials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.45; /* Increased opacity to ensure the fine wave lines are clearly visible */
+  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+/* Individual Background Image assignments */
+.card-music::before {
+  background-image: url('img/music_card_bg.png');
+}
+.card-gigs::before {
+  background-image: url('img/gigs_card_bg.png');
+}
+.card-downloads::before {
+  background-image: url('img/downloads_card_bg.png');
+}
+.card-contact::before {
+  background-image: url('img/contact_card_bg.png');
+}
+.card-socials::before {
+  background-image: url('img/socials_card_bg.png');
+}
+
+/* Hover scale animations */
+.card-music:hover::before,
+.card-gigs:hover::before,
+.card-downloads:hover::before,
+.card-contact:hover::before,
+.card-socials:hover::before {
+  transform: scale(1.08) translate(-0.3%, -0.3%);
+}
+
+/* Readability overlays (z-index: 2, below content but above background image) */
+.card-music::after,
+.card-gigs::after,
+.card-downloads::after,
+.card-contact::after,
+.card-socials::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-music::after {
+  background: linear-gradient(180deg, rgba(21, 22, 30, 0.65) 0%, rgba(21, 22, 30, 0.2) 100%);
+}
+.card-gigs::after {
+  background: linear-gradient(180deg, rgba(21, 22, 30, 0.65) 0%, rgba(21, 22, 30, 0.3) 100%);
+}
+.card-downloads::after {
+  background: linear-gradient(135deg, rgba(21, 22, 30, 0.65) 0%, rgba(21, 22, 30, 0.2) 100%);
+}
+.card-contact::after {
+  background: linear-gradient(180deg, rgba(21, 22, 30, 0.6) 0%, rgba(21, 22, 30, 0.2) 100%);
+}
+.card-socials::after {
+  background: radial-gradient(circle at center, rgba(21, 22, 30, 0.45) 0%, rgba(21, 22, 30, 0.15) 100%);
+}
+
+/* ==========================================================================
    5. INTERACTIVE VERCEL-STYLE MOUSE BORDER GLOW
    ========================================================================== */
 
@@ -1447,6 +1555,10 @@ body::before {
 
 [dir="rtl"] .card-consulting::after {
   background: linear-gradient(-90deg, rgba(11, 12, 16, 0.95) 0%, rgba(11, 12, 16, 0.8) 60%, rgba(11, 12, 16, 0.1) 100%) !important;
+}
+
+[dir="rtl"] .card-downloads::after {
+  background: linear-gradient(225deg, rgba(21, 22, 30, 0.65) 0%, rgba(21, 22, 30, 0.2) 100%) !important;
 }
 
 /* Mobile RTL Adjustments */
