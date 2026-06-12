@@ -7,20 +7,20 @@
   --bg-dark: #0b0c10;
   --bg-card: #15161e;
   --color-border: rgba(255, 255, 255, 0.08);
-  
+
   /* Curated Professional Accents (No Pink) */
   --color-neon-cyan: #00f0ff;
   --color-neon-blue: #1a66ff;
   --color-neon-mid: #00aaff;
-  
+
   /* Highly Readable Typography Colors */
   --color-text-main: #e8e8f0;
   --color-text-muted: #9fa0b5;
   --color-text-highlight: #ffffff;
-  
+
   --font-header: 'Syncopate', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
-  
+
   --transition-ultra: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,6 +40,11 @@ html {
 
 body {
   background-color: var(--bg-dark);
+  background-image: url('img/black_wave_pattern.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: var(--color-text-main);
   font-family: var(--font-body);
   font-weight: 300;
@@ -52,7 +57,10 @@ body {
 body::before {
   content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('img/phil_gazometer.png');
   background-size: cover;
   background-position: center;
@@ -64,21 +72,29 @@ body::before {
 }
 
 @keyframes bgPulse {
-  0% { transform: scale(1.02) rotate(0deg); }
-  100% { transform: scale(1.08) rotate(1deg); }
+  0% {
+    transform: scale(1.02) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.08) rotate(1deg);
+  }
 }
 
 /* Custom Scrollbar */
 .scrollable::-webkit-scrollbar {
   width: 4px;
 }
+
 .scrollable::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .scrollable::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
+
 .scrollable::-webkit-scrollbar-thumb:hover {
   background: var(--color-neon-cyan);
 }
@@ -91,6 +107,7 @@ body::before {
   z-index: 1;
   filter: blur(140px);
 }
+
 .glow-1 {
   top: -10%;
   left: -10%;
@@ -98,6 +115,7 @@ body::before {
   height: 50vw;
   background: radial-gradient(circle, rgba(26, 102, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
 }
+
 .glow-2 {
   bottom: -10%;
   right: -10%;
@@ -261,9 +279,17 @@ body::before {
 }
 
 @keyframes pulseLed {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
 }
 
 /* ==========================================================================
@@ -346,7 +372,10 @@ body::before {
 
 .card-bg-image-wrapper {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
   overflow: hidden;
   border-radius: 12px;
@@ -378,7 +407,10 @@ body::before {
 .card-profile::after {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(90deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.6) 55%, rgba(21, 22, 30, 0.1) 100%);
   z-index: 2;
   pointer-events: none;
@@ -396,8 +428,8 @@ body::before {
   height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   flex-shrink: 0;
 }
 
@@ -438,7 +470,7 @@ body::before {
 
 .action-btn {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--color-text-main);
   padding: 12px 24px;
   font-family: var(--font-body);
@@ -516,7 +548,10 @@ body::before {
 .card-consulting::after {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(90deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.65) 60%, rgba(21, 22, 30, 0.1) 100%);
   z-index: 2;
   pointer-events: none;
@@ -629,7 +664,7 @@ body::before {
 }
 
 .download-btn {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 14px 20px;
@@ -705,7 +740,8 @@ body::before {
   gap: 12px;
 }
 
-.bento-form input, .bento-form textarea {
+.bento-form input,
+.bento-form textarea {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--color-border);
   border-radius: 6px;
@@ -718,7 +754,8 @@ body::before {
   transition: var(--transition-fast);
 }
 
-.bento-form input:focus, .bento-form textarea:focus {
+.bento-form input:focus,
+.bento-form textarea:focus {
   border-color: var(--color-neon-cyan);
   box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
 }
@@ -812,20 +849,21 @@ body::before {
 /* The card overlay that draws the mouse tracking radial glow on the border */
 .card-border-glow {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
   border-radius: 12px;
   z-index: 3;
   opacity: 0;
   transition: opacity 0.5s ease;
   border: 1px solid transparent;
-  background: radial-gradient(
-    300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(255, 255, 255, 0.12),
-    transparent 40%
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  background: radial-gradient(300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+      rgba(255, 255, 255, 0.12),
+      transparent 40%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -834,12 +872,10 @@ body::before {
 
 /* Clean Cyan-Blue glows across all dashboard cards */
 .bento-card .card-border-glow {
-  background: radial-gradient(
-    250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(0, 240, 255, 0.25) 0%,
-    rgba(26, 102, 255, 0.15) 50%,
-    transparent 100%
-  );
+  background: radial-gradient(250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+      rgba(0, 240, 255, 0.25) 0%,
+      rgba(26, 102, 255, 0.15) 50%,
+      transparent 100%);
 }
 
 .bento-card:hover .card-border-glow {
@@ -852,7 +888,10 @@ body::before {
 
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(3, 3, 5, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -868,7 +907,10 @@ body::before {
 .modal-overlay::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('img/phil_gazometer.png');
   background-size: cover;
   background-position: center;
@@ -1010,20 +1052,45 @@ body::before {
   #app-container {
     padding: 0 24px;
   }
+
   .bento-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .card-profile { grid-column: span 2; }
-  .card-music { grid-column: span 1; grid-row: span 1; }
-  .card-consulting { grid-column: span 1; }
-  .card-gigs { grid-column: span 1; grid-row: span 1; }
-  .card-downloads { grid-column: span 1; }
-  .card-contact { grid-column: span 1; }
-  .card-socials { grid-column: span 1; }
-  
+
+  .card-profile {
+    grid-column: span 2;
+  }
+
+  .card-music {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .card-consulting {
+    grid-column: span 1;
+  }
+
+  .card-gigs {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .card-downloads {
+    grid-column: span 1;
+  }
+
+  .card-contact {
+    grid-column: span 1;
+  }
+
+  .card-socials {
+    grid-column: span 1;
+  }
+
   #modal-canvas {
     width: calc(100% - 450px);
   }
+
   .modal-wrapper {
     width: 450px;
   }
@@ -1034,7 +1101,7 @@ body::before {
   #app-container {
     padding: 0 16px;
   }
-  
+
   .main-header {
     flex-direction: row !important;
     justify-content: space-between !important;
@@ -1048,20 +1115,20 @@ body::before {
     -webkit-backdrop-filter: blur(12px);
     z-index: 100;
   }
-  
+
   .header-logo {
     text-align: left !important;
   }
-  
+
   .brand-logo {
     height: 16px !important;
     margin: 0 !important;
   }
-  
+
   .header-actions {
     gap: 16px !important;
   }
-  
+
   /* Hamburger Menu Toggle Button */
   .menu-toggle {
     display: flex !important;
@@ -1076,7 +1143,7 @@ body::before {
     padding: 0;
     outline: none;
   }
-  
+
   .hamburger-bar {
     width: 100%;
     height: 2px;
@@ -1084,19 +1151,19 @@ body::before {
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   .menu-toggle.open .hamburger-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
+
   .menu-toggle.open .hamburger-bar:nth-child(2) {
     opacity: 0;
   }
-  
+
   .menu-toggle.open .hamburger-bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
   /* Mobile Dropdown Menu Drawer Overlay */
   .header-nav {
     position: fixed !important;
@@ -1123,13 +1190,13 @@ body::before {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
     overflow-x: hidden !important;
   }
-  
+
   .header-nav.open {
     transform: translateY(0) !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
-  
+
   .nav-link {
     font-size: 18px !important;
     letter-spacing: 3px !important;
@@ -1142,16 +1209,17 @@ body::before {
     white-space: normal !important;
     transition: var(--transition-fast) !important;
   }
-  
+
   .nav-link.active {
     color: var(--color-neon-cyan) !important;
     background: transparent !important;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
     box-shadow: none !important;
   }
-  
+
   .sys-info {
-    display: none; /* Hide systems timestamp in header on mobile to avoid clutter */
+    display: none;
+    /* Hide systems timestamp in header on mobile to avoid clutter */
   }
 
   .bento-grid {
@@ -1160,21 +1228,23 @@ body::before {
     gap: 16px;
     padding: 24px 0;
   }
-  
+
   .bento-card {
     grid-column: span 1 !important;
     grid-row: span 1 !important;
   }
-  
+
   /* Stacking gradient overlays vertically on mobile */
-  .card-profile::after, .card-consulting::after {
+  .card-profile::after,
+  .card-consulting::after {
     background: linear-gradient(180deg, rgba(21, 22, 30, 0.85) 0%, rgba(21, 22, 30, 0.65) 70%, rgba(21, 22, 30, 0.15) 100%) !important;
   }
-  
+
   .card-content {
-    padding: 20px; /* Smaller padding on mobile to save space */
+    padding: 20px;
+    /* Smaller padding on mobile to save space */
   }
-  
+
   .bento-card h2 {
     font-size: 18px;
     margin-bottom: 10px;
@@ -1187,27 +1257,27 @@ body::before {
     gap: 16px;
     margin-bottom: 20px;
   }
-  
+
   .portrait-container {
     width: 100px;
     height: 100px;
   }
-  
+
   .profile-title h1 {
     font-size: 26px;
     letter-spacing: 2.5px;
   }
-  
+
   .role-subtitle {
     font-size: 11px;
   }
-  
+
   .profile-body p {
     font-size: 13.5px;
     margin-bottom: 16px;
     text-align: center;
   }
-  
+
   .action-btn {
     align-self: center;
   }
@@ -1216,6 +1286,7 @@ body::before {
   .soundcloud-embed-container {
     height: 220px;
   }
+
   .soundcloud-embed-container iframe {
     height: 220px;
   }
@@ -1232,7 +1303,9 @@ body::before {
     overflow-x: auto;
     margin-top: 16px;
   }
-  .gigs-table td, .gigs-table th {
+
+  .gigs-table td,
+  .gigs-table th {
     padding: 12px 6px;
   }
 
@@ -1255,25 +1328,25 @@ body::before {
     border-top: 1px solid var(--color-border);
     border-radius: 20px 20px 0 0;
   }
-  
+
   .modal-overlay.open .modal-wrapper {
     transform: translateY(0);
   }
-  
+
   .modal-body {
     padding: 40px 20px;
   }
-  
+
   .modal-body h2 {
     font-size: 26px;
     margin-bottom: 20px;
   }
-  
+
   .modal-image {
     height: 180px;
     margin-bottom: 20px;
   }
-  
+
   .close-modal-btn {
     top: 20px;
     right: 20px;
@@ -1301,7 +1374,7 @@ body::before {
   .platform-links {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  
+
   .social-logos-grid {
     gap: 14px !important;
     padding: 10px 0 !important;
@@ -1362,10 +1435,9 @@ body::before {
   [dir="rtl"] .header-logo {
     text-align: right !important;
   }
-  
+
   [dir="rtl"] .close-modal-btn {
     right: auto;
     left: 20px;
   }
 }
-
