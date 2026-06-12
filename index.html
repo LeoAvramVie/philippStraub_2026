@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philipp Straub | Official Portal</title>
+  <meta name="description" content="Official portal of Philipp Straub. International DJ, Producer, and leading Nightlife Strategist & Hospitality Consultant.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND GLOW EFFECTS -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- MAIN WRAPPER -->
+  <div id="app-container">
+    
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="header-logo">
+        <a href="#dashboard">
+          <img src="https://philippstraub.com/wp-content/uploads/2018/10/logo_Philipp_Straub_white.png" alt="Philipp Straub Logo" class="brand-logo">
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="#card-profile" class="nav-link">PROFILE</a>
+        <a href="#card-music" class="nav-link">MUSIC</a>
+        <a href="#card-consulting" class="nav-link">CONSULTING</a>
+        <a href="#card-gigs" class="nav-link">GIGS</a>
+        <a href="#card-contact" class="nav-link">CONTACT</a>
+      </nav>
+      <div class="sys-info">
+        <span class="indicator"></span> LIVE_DASHBOARD // <span id="time-display">18:04:00</span>
+      </div>
+    </header>
+
+    <!-- BENTO DASHBOARD GRID -->
+    <main id="dashboard" class="bento-grid">
+      
+      <!-- CARD 1: PROFILE & BIO -->
+      <section id="card-profile" class="bento-card card-profile card-glow-effect">
+        <!-- Emotive background image with slow animation -->
+        <div class="card-bg-image-wrapper">
+          <img src="img/phil_festival.png" alt="Philipp Straub Live Performance" class="card-bg-image">
+        </div>
+        
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <div class="profile-header">
+            <div class="portrait-container">
+              <img src="img/phil_dj_klein.jpg" alt="Philipp Straub Portrait" class="portrait-img">
+            </div>
+            <div class="profile-title">
+              <span class="label-badge">CH_01 // THE CORE</span>
+              <h1>PHILIPP STRAUB</h1>
+              <p class="role-subtitle">DJ, Producer & Nightlife Architect</p>
+            </div>
+          </div>
+          <div class="profile-body">
+            <p class="legible-text">Seit fast 30 Jahren prägt Philipp Straub die elektronische Musikszene. Als international tourender Künstler verbindet er emotionale Progressive- und Techno-Sets mit einer B2B-Rolle als Berater für Entertainment- und Hospitality-Marken.</p>
+            <button id="open-bio-btn" class="action-btn">READ BIOGRAPHY ➔</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 2: MUSIC HUB (EMBEDDED SOUNDCLOUD PLAYER) -->
+      <section id="card-music" class="bento-card card-music card-glow-effect">
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <span class="label-badge">CH_02 // AUDIO PLAYER</span>
+          <h2>SOUNDS & SETS</h2>
+          
+          <!-- Embedded SoundCloud Player for direct on-page streaming -->
+          <div class="soundcloud-embed-container">
+            <iframe 
+              width="100%" 
+              height="280" 
+              scrolling="no" 
+              frameborder="no" 
+              allow="autoplay" 
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/695214&color=%2300f0ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false">
+            </iframe>
+          </div>
+
+          <div class="platform-links">
+            <a href="https://soundcloud.com/philippstraub" target="_blank" class="platform-btn">SOUNDCLOUD ↗</a>
+            <a href="https://ra.co/dj/philippstraub" target="_blank" class="platform-btn">RESIDENT ADVISOR ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 3: CONSULTING & ARCHITECTURE -->
+      <section id="card-consulting" class="bento-card card-consulting card-glow-effect">
+        <!-- Emotive background image representing hotel consulting with slow zoom -->
+        <div class="card-bg-image-wrapper">
+          <img src="img/phil_at_work.png" alt="Luxury Hotel Resort Consulting" class="card-bg-image">
+        </div>
+        
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <span class="label-badge">CH_03 // STRATEGY</span>
+          <h2>NIGHTLIFE ARCHITECT</h2>
+          <p class="section-intro">Philipp berät globale Player an der Schnittstelle von Clubkultur und Luxus-Gastronomie.</p>
+          
+          <div class="consulting-grid">
+            <div class="consulting-item">
+              <h4>FIVE Hotels & Resorts</h4>
+              <span class="consult-role">Music Director</span>
+              <p class="legible-text">Verantwortlich für das musikalische Line-up und Sound-Branding in Dubai & Ibiza.</p>
+            </div>
+            <div class="consulting-item">
+              <h4>The Pacha Group</h4>
+              <span class="consult-role">Creative Advisor</span>
+              <p class="legible-text">Strategische Beratung zur Kuration und Modernisierung der Club-Events auf Ibiza.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 4: TOUR GIGS -->
+      <section id="card-gigs" class="bento-card card-gigs card-glow-effect">
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <span class="label-badge">CH_04 // SCHEDULE</span>
+          <h2>TOUR DATES</h2>
+          <div class="gigs-table-container">
+            <table class="gigs-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>VENUE</th>
+                  <th>LOCATION</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="gig-date">18 / JUN</td>
+                  <td class="gig-venue">Pacha Club</td>
+                  <td class="gig-loc">Ibiza, ESP</td>
+                  <td><span class="status-pill active">TICKETS</span></td>
+                </tr>
+                <tr>
+                  <td class="gig-date">04 / JUL</td>
+                  <td class="gig-venue">FIVE Beach</td>
+                  <td class="gig-loc">Dubai, UAE</td>
+                  <td><span class="status-pill active">TICKETS</span></td>
+                </tr>
+                <tr>
+                  <td class="gig-date">15 / AUG</td>
+                  <td class="gig-venue">Flex Terrace</td>
+                  <td class="gig-loc">Vienna, AUT</td>
+                  <td><span class="status-pill active">FREE</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 5: B2B DOWNLOADS -->
+      <section id="card-downloads" class="bento-card card-downloads card-glow-effect">
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <span class="label-badge">CH_05 // PROMO ASSETS</span>
+          <h2>PRESS & TECHNICAL</h2>
+          <p class="section-intro">Sofortiger Zugriff auf hochauflösende Promo-Materialien und Bühnen-Spezifikationen.</p>
+          <div class="downloads-actions">
+            <button id="epk-btn" class="download-btn">
+              <span class="icon">↓</span>
+              <div class="btn-info">
+                <span class="btn-title">DOWNLOAD EPK</span>
+                <span class="btn-meta">Bio, Press Photos // ZIP 14.5MB</span>
+              </div>
+            </button>
+            <button id="rider-btn" class="download-btn">
+              <span class="icon">↓</span>
+              <div class="btn-info">
+                <span class="btn-title">TECHNICAL RIDER</span>
+                <span class="btn-meta">Stage setup, requirements // PDF 1.2MB</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 6: B2B CONTACT FORM -->
+      <section id="card-contact" class="bento-card card-contact card-glow-effect">
+        <div class="card-border-glow"></div>
+        <div class="card-content">
+          <span class="label-badge">CH_06 // INQUIRIES</span>
+          <h2>B2B CONTACT</h2>
+          <form id="contact-form" class="bento-form">
+            <div class="form-row">
+              <input type="text" placeholder="NAME / FIRMA" required>
+              <input type="email" placeholder="EMAIL" required>
+            </div>
+            <div class="form-row">
+              <textarea placeholder="DEINE ANFRAGE (BOOKING ODER CONSULTING)..." required></textarea>
+            </div>
+            <div class="submit-row">
+              <button type="submit" class="submit-btn">SEND INQUIRY ➔</button>
+            </div>
+            <div id="form-success" class="form-success-text hidden">ANFRAGE ERFOLGREICH ÜBERMITTELT. ✓</div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-left">
+        &copy; 2026 Philipp Straub. All rights reserved.
+      </div>
+      <div class="footer-right">
+        <a href="mailto:booking@philippstraub.com">booking@philippstraub.com</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- 4. FULL BIOGRAPHY MODAL (DRAWER OVERLAY WITH CANVAS) -->
+  <div id="bio-modal" class="modal-overlay">
+    
+    <!-- Canvas for floating sine wave animation in the empty space -->
+    <canvas id="modal-canvas"></canvas>
+    
+    <div class="modal-wrapper">
+      <button id="close-bio-btn" class="close-modal-btn">&times;</button>
+      <div class="modal-body scrollable">
+        <span class="modal-badge">FULL BIOGRAPHY</span>
+        <h2>PHILIPP STRAUB</h2>
+        <div class="modal-image">
+          <img src="img/phil_hdl3224.jpg" alt="Philipp Straub Stage">
+        </div>
+        <div class="modal-text">
+          <p class="legible-text">Philipp Straub gilt als einer der wichtigsten Pioniere der elektronischen Musikszene in Zentraleuropa. Seine musikalische Laufbahn begann in den frühen 1990er Jahren, als er mit wegweisenden Musikprojekten den Grundstein für die wachsende Rave-Kultur legte.</p>
+          <p class="legible-text">Als internationaler DJ bereiste er seither über 100 Länder und trat in namhaften Clubs und auf Festivals weltweit auf. Seine tiefen, atmosphärischen Sets zeichnen sich durch ein breites Spektrum aus melodischem Techno, Tech House und Progressive House aus.</p>
+          <p class="legible-text">Neben seiner künstlerischen Arbeit ist Philipp Straub ein gefragter Stratege und Berater in der Nightlife- und Hotelbranche. Seine fundierte Branchenkenntnis macht ihn zum Bindeglied zwischen kreativem Musikkonzept und anspruchsvollem Premium-Hospitality-Design. Als Musikdirektor für führende Hotelketten und weltberühmte Clubs gestaltet er die Nightlife-Erlebnisse von morgen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
