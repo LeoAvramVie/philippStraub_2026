@@ -546,8 +546,8 @@ body::before {
 
 .platform-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .platform-btn {
@@ -1491,7 +1491,7 @@ body::before {
 
   /* Responsive link grids on mobile */
   .platform-links {
-    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
   }
 
   .social-logos-grid {
