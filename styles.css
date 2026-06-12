@@ -154,6 +154,10 @@ body::before {
   z-index: 100;
 }
 
+.header-logo {
+  padding-inline-start: 16px;
+}
+
 .brand-logo {
   height: 22px;
   width: auto;
@@ -1118,6 +1122,7 @@ body::before {
 
   .header-logo {
     text-align: left !important;
+    padding-inline-start: 8px;
   }
 
   .brand-logo {
