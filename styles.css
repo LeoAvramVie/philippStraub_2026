@@ -1160,12 +1160,15 @@ body::before {
   margin-top: 40px;
 }
 
-.footer-right a {
+.main-footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
   transition: var(--transition-fast);
 }
 
-.footer-right a:hover {
-  color: #fff;
+.main-footer a:hover {
+  color: var(--color-neon-cyan);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
 }
 
 /* Tablet Layouts */

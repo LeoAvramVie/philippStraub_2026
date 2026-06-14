@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "Seine atmosphärischen Sets zeichnen sich durch ein breites Spektrum von Progressive House über Indie Dance bis hin zu Melodic Techno aus.",
       modal_p3: "Neben seiner künstlerischen Arbeit ist er ein gefragter Stratege und Berater in der globalen Nightlife- und Hospitality-Branche. Seine fundierten Branchenkenntnisse machen ihn zum Bindeglied zwischen kreativen Musikkonzepten und anspruchsvollen Premium-Entertainment-Designs. Als Musikdirektor für führende Marken gestaltet er weiterhin die Nightlife-Erlebnisse von morgen.",
       modal_connect: "MIT PHILIPP VERBINDEN",
-      footer_copyright: "&copy; 2026 Philipp Straub. Alle Rechte vorbehalten.",
+      footer_copyright: "&copy; 2026 Philipp Straub. Alle Rechte vorbehalten. | Website von <a href=\"https://www.leoavramovic.com\" target=\"_blank\" rel=\"noopener noreferrer\">Leo Avramovic</a>",
       download_epk_alert: "B2B-DOWNLOAD-PAKET WIRD GESTARTET...\nphilipp_straub_epk_2026.zip [14.5 MB]",
       download_rider_alert: "BÜHNEN-SETUP & RIDER-DOWNLOAD WIRD GESTARTET...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     },
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "His atmospheric sets are characterized by a wide spectrum of progressive house to indie dance and melodic techno.",
       modal_p3: "In addition to his artistic work he is a sought-after strategist & consultant in the global nightlife and hospitality industry. His profound industry knowledge makes him the link between creative music concepts and sophisticated premium entertainment designs. As music director for leading brands he continues to shape the nightlife experiences of tomorrow.",
       modal_connect: "CONNECT WITH PHILIPP",
-      footer_copyright: "&copy; 2026 Philipp Straub. All rights reserved.",
+      footer_copyright: "&copy; 2026 Philipp Straub. All rights reserved. | Website by <a href=\"https://www.leoavramovic.com\" target=\"_blank\" rel=\"noopener noreferrer\">Leo Avramovic</a>",
       download_epk_alert: "INITIATING B2B DOWNLOAD PACKAGE...\nphilipp_straub_epk_2026.zip [14.5 MB]",
       download_rider_alert: "INITIATING TECHNICAL RIDER DOWNLOAD...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     },
@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "كدي جي عالمي، سافر منذ ذلك الحين إلى أكثر من 100 دولة وقدم عروضه في نوادي شهيرة ومهرجانات حول العالم. تتميز مجموعاته العميقة والجوية بمزيج واسع من التكنو الميلودي، التيك هاوس، والبروجريسيف هاوس.",
       modal_p3: "إلى جانب عمله الفني، فيليب شتراوب استراتيجي ومستشار مطلوب في قطاع الحياة الليلية والفنادق. معرفته العميقة بالصناعة تجعله حلقة الوصل بين المفهوم الموسيقي الإبداعي وتصميم الضيافة المتميز. كمدير موسيقي لسلاسل الفنادق الرائدة والنوادي ذات الشهرة العالمية، يقوم بصياغة تجارب الحياة الليلية للغد.",
       modal_connect: "تواصل مع فيليب",
-      footer_copyright: "&copy; 2026 فيليب شتراوب. جميع الحقوق محفوظة.",
+      footer_copyright: "&copy; 2026 فيليب شتراوب. جميع الحقوق محفوظة. | تم تطوير الموقع بواسطة <a href=\"https://www.leoavramovic.com\" target=\"_blank\" rel=\"noopener noreferrer\">Leo Avramovic</a>",
       download_epk_alert: "بدء تحميل حزمة B2B...\nphilipp_straub_epk_2026.zip [14.5 MB]",
       download_rider_alert: "بدء تحميل الملف التقني وإعداد المسرح...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     },
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "एक अंतरराष्ट्रीय डीजे के रूप में, उन्होंने तब से 100 से अधिक देशों की यात्रा की है और दुनिया भर के प्रसिद्ध क्लबों और त्योहारों में प्रदर्शन किया है। उनके गहरे, वायुमंडलीय सेटों में मेलोडिक टेक्नो, टेक हाउस और प्रोग्रेसिव हाउस का एक विस्तृत स्पेक्ट्रम शामिल है।",
       modal_p3: "अपने कलात्मक काम के अलावा, फिलिप स्ट्रॉब नाइटलाइफ़ और होटल उद्योग में एक मांग वाले रणनीतिकार और सलाहकार हैं। उनका गहरा उद्योग ज्ञान उन्हें रचनात्मक संगीत अवधारणाओं और परिष्कृत प्रीमियम आतिथ्य डिजाइन के बीच की कड़ी बनाता है। अग्रणी होटल श्रृंखलाओं और विश्व प्रसिद्ध क्लबों के संगीत निर्देशक के रूप में, वह कल के नाइटलाइफ़ अनुभवों को आकार देते हैं।",
       modal_connect: "फिलिप से जुड़ें",
-      footer_copyright: "&copy; 2026 फिलिप स्ट्रॉब। सर्वाधिकार सुरक्षित।",
+      footer_copyright: "&copy; 2026 फिलिप स्ट्रॉब। सर्वाधिकार सुरक्षित। | <a href=\"https://www.leoavramovic.com\" target=\"_blank\" rel=\"noopener noreferrer\">Leo Avramovic</a> द्वारा वेबसाइट",
       download_epk_alert: "B2B डाउनलोड पैकेज शुरू किया जा रहा है...\nphilipp_straub_epk_2026.zip [14.5 MB]",
       download_rider_alert: "तकनीकी राइडर डाउनलोड शुरू किया जा रहा है...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     },
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal_p2: "作为一名国际 DJ，他此后旅行了100多个国家，并在全球著名的俱乐部和音乐节上演出。他深邃、充满氛围感的现场涵盖了旋律泰克诺（Melodic Techno）、泰克朋克（Tech House）和渐进浩室（Progressive House）。",
       modal_p3: "除了艺术创作，Philipp Straub 也是夜生活和酒店行业备受追捧的战略家和顾问。他深厚的行业知识使他成为创意音乐概念与高端奢华酒店设计之间的纽带。作为领先酒店集团和世界著名俱乐部的音乐总监，他正在塑造明天的夜生活体验。",
       modal_connect: "联系 Philipp",
-      footer_copyright: "&copy; 2026 Philipp Straub. 保留所有权利。",
+      footer_copyright: "&copy; 2026 Philipp Straub. 保留所有权利。 | 网站设计开发：<a href=\"https://www.leoavramovic.com\" target=\"_blank\" rel=\"noopener noreferrer\">Leo Avramovic</a>",
       download_epk_alert: "正在启动 B2B 宣传包下载...\nphilipp_straub_epk_2026.zip [14.5 MB]",
       download_rider_alert: "正在启动技术规格要求 (RIDER) 下载...\nphilipp_straub_stage_rider_2026.pdf [1.2 MB]"
     }
